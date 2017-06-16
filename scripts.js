@@ -2,15 +2,10 @@
     const btn = document.querySelector('button');
     const intro = document.querySelector('.intro');
     const toggleState = (event) => {
-        console.log('?');
         event.preventDefault();
 
-        console.log('toggleState', intro);
-
-        intro.classList.toggle('intro--splitted');
+        intro.classList.toggle('intro--teams');
     };
-
-    console.log('btn', btn);
 
     btn.addEventListener('click', toggleState, false);
 })();

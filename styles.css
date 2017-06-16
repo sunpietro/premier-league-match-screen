@@ -38,10 +38,40 @@ body {
 
 [class^="intro__panel"] {
     background: rgba(37, 215, 224, .8);
+    transition: all .5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
 
 .intro__panel--right {
     width: 100%;
+}
+
+.intro__league-badge-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+.intro__league-badge-outer,
+.intro__league-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.intro__league-badge {
+    width: 640px;
+    height: 200px;
+}
+
+.intro__league-logo {
+    height: 108px;
+    width: auto;
+    opacity: 0;
+}
+
+.intro__league-logo,
+.intro__league-badge {
+    transition: opacity .5s ease-out;
 }
 
 .intro__teams-wrapper {
@@ -113,35 +143,11 @@ body {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, .65);
 }
 
-.intro__league-badge-wrapper {
-    position: relative;
-    height: 100%;
-}
-
-.intro__league-badge-outer,
-.intro__league-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-}
-
 .intro__team-badge {
     max-width: 100%;
     width: auto;
     max-height: 100%;
     height: auto;
-}
-
-.intro__league-badge {
-    width: 640px;
-    height: 200px;
-}
-
-.intro__league-logo {
-    height: 108px;
-    width: auto;
-    opacity: 0;
 }
 
 .intro__team-badge-wrapper {
@@ -207,44 +213,38 @@ body {
     left: 0;
 }
 
-[class^="intro__panel"],
 .intro__teams,
 .intro__team-badge {
     transition: all .5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
 
-.intro__league-logo,
-.intro__league-badge {
-    transition: opacity .5s ease-out;
-}
-
-.intro--splitted {
+.intro--teams {
     justify-content: space-between;
 }
 
-.intro--splitted .intro__panel--left {
+.intro--teams .intro__panel--left {
     width: 30vw;
 }
 
-.intro--splitted .intro__panel--right {
+.intro--teams .intro__panel--right {
     width: 15vw;
 }
 
-.intro--splitted .intro__teams-wrapper {
+.intro--teams .intro__teams-wrapper {
     opacity: 1;
 }
 
-.intro--splitted .intro__team--home {
+.intro--teams .intro__team--home {
     transform: translate3d(0, 0, 0);
     padding-top: 24px;
 }
 
-.intro--splitted .intro__team--away {
+.intro--teams .intro__team--away {
     transform: translate3d(10vw, 0, 0);
     opacity: 1;
 }
 
-.intro--splitted .intro__league-badge {
+.intro--teams .intro__league-badge {
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -252,20 +252,20 @@ body {
     transform: translate3d(-50%, -50%, 0);
 }
 
-.intro--splitted .intro__league-logo {
+.intro--teams .intro__league-logo {
     opacity: 1;
 }
 
-.intro--splitted .intro__team-badge-wrapper {
+.intro--teams .intro__team-badge-wrapper {
     transform: translate3d(0, 0, 0);
 }
 
-.intro--splitted .intro__hashtag {
+.intro--teams .intro__hashtag {
     opacity: 1;
     transform: translate3d(10vw, 0, 0);
 }
 
-.intro--splitted .intro__field-info {
+.intro--teams .intro__field-info {
     opacity: 1;
     transform: translate3d(-155px, 0, 0);
 }
