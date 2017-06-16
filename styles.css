@@ -57,44 +57,24 @@ body {
     width: 15vw;
 }
 
-.intro__teams {
+.intro__teams-wrapper {
     opacity: 0;
     position: absolute;
     top: 50%;
-    left: 50%;
-    display: flex;
-    flex-direction: column;
-    transform: translate3d(-50%, -50%, 0);
-}
-
-.intro--splitted .intro__teams {
-    opacity: 1;
-    transform: translate3d(-50%, -50%, 0);
-}
-
-.intro__field-info {
-    background: rgba(64, 4, 68, .9);
-    color: rgb(37, 215, 224);
-    display: flex;
-    padding: 0 30px;
-    line-height: 24px;
-    font-weight: 700;
-    align-self: flex-end;
-    transform: translate3d(-150px, 0, 0);
-    position: relative;
-    z-index: 2;
+    left: 15vw;
+    transform: translate3d(0, -50%, 0);
+    width: 70vw;
     overflow: hidden;
 }
 
-.intro__field-info:after {
-    content: '';
-    height: 0px;
-    width: 100%;
-    box-shadow: 0 -1px 5px 1px rgba(0, 0, 0, .65);
-    flex: 1 1 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.intro--splitted .intro__teams-wrapper {
+    opacity: 1;
+}
+
+.intro__teams {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
 }
 
 [class^="intro__team--"] {
@@ -104,13 +84,26 @@ body {
 }
 
 .intro__team--home {
-    transform: translate3d(-60px, 0, 0);
+    transform: translate3d(-50vw, 0, 0);
     z-index: 3;
+    transition: transform 1s 1s ease-out;
+}
+
+.intro--splitted .intro__team--home {
+    transform: translate3d(0, 0, 0);
+    padding-top: 24px;
 }
 
 .intro__team--away {
-    transform: translate3d(60px, 0, 0);
+    transform: translate3d(10vw, -100%, 0);
+    opacity: 0;
     z-index: 2;
+    transition: transform 1s 2s ease-out, opacity 1s 2.2s ease-out;
+}
+
+.intro--splitted .intro__team--away {
+    transform: translate3d(10vw, 0, 0);
+    opacity: 1;
 }
 
 .intro__team-name {
@@ -119,8 +112,7 @@ body {
     background: rgba(64, 4, 68, 1);
     color: #fff;
     text-transform: uppercase;
-    font-size: 60px;
-    font-weight: 400;
+    font-size: 72px;
     z-index: 2;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, .5);
     font-family: 'PremierSans-Bold', Roboto, Helvetica, Arial, sans-serif;
@@ -190,6 +182,7 @@ body {
 
 .intro__team-badge-wrapper {
     transform: translate3d(-90px, 0, 0);
+    transition: transform 1s 3.2s ease-out;
 }
 
 .intro--splitted .intro__team-badge-wrapper {
@@ -202,11 +195,18 @@ body {
     padding: 0 30px;
     line-height: 24px;
     font-weight: 700;
-    transform: translate3d(60px, 0, 0);
+    transform: translate3d(10vw, -100%, 0);
     align-self: flex-start;
     position: relative;
     z-index: 1;
     overflow: hidden;
+    opacity: 0;
+    transition: transform 1s 3.2s ease-out, opacity 1s 3.4s ease-out;
+}
+
+.intro--splitted .intro__hashtag {
+    opacity: 1;
+    transform: translate3d(10vw, 0, 0);
 }
 
 .intro__hashtag:before {
@@ -220,11 +220,57 @@ body {
     left: 0;
 }
 
+.intro__field-info {
+    background: rgba(64, 4, 68, .9);
+    color: rgb(37, 215, 224);
+    display: flex;
+    padding: 0 30px;
+    line-height: 24px;
+    font-family: 'PremierSans-Regular', Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    align-self: flex-end;
+    transform: translate3d(-155px, 100%, 0);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: -30px;
+    transform-origin: center bottom;
+    transition: transform 1s 3.2s ease-out, opacity 1s 3.4s ease-out;
+}
+
+.intro__field-info:after {
+    content: '';
+    height: 0px;
+    width: 100%;
+    box-shadow: 0 -1px 5px 1px rgba(0, 0, 0, .65);
+    flex: 1 1 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.intro--splitted .intro__field-info {
+    opacity: 1;
+    transform: translate3d(-155px, 0, 0);
+}
+
 [class^="intro__panel"],
 .intro__teams,
-.intro__team-badge,
-.intro__league-logo,
-.intro__league-badge,
-.intro__team-badge-wrapper {
+.intro__team-badge {
     transition: all 1s ease-out;
+}
+
+.intro__league-logo,
+.intro__league-badge {
+    transition: opacity 1s ease-out;
+}
+
+.intro__team-name,
+.intro__field-info,
+.intro__hashtag {
+    /*background: #fff;*/
 }
